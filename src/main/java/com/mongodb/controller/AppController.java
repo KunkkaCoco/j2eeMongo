@@ -14,7 +14,7 @@ import com.mongodb.service.BaseService;
 
 @Controller
 @RequestMapping(value = "/application")
-public class BeerController {
+public class AppController {
 
 	@Autowired
 	private BaseService baseService;
