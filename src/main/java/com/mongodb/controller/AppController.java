@@ -13,7 +13,7 @@ import com.mongodb.model.Beer;
 import com.mongodb.service.BaseService;
 
 @Controller
-@RequestMapping(value = "/application")
+@RequestMapping("/application")
 public class AppController {
 
 	@Autowired
