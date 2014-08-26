@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.mongodb.dao.BaseDao;
 import com.mongodb.service.BaseService;
 
-@Service
+@Service("baseService")
 public class BaseServiceImpl implements BaseService {
 
 	@Autowired
