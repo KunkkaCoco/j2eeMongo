@@ -1,16 +1,16 @@
 package com.mongodb.model;
 
-public class Beer {
-	private String id;
+public class Demo {
+	private String demoid;
 	private String name;
 	private String description;
 
-	public String getId() {
-		return id;
+	public String getDemoid() {
+		return demoid;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setDemoid(String demoid) {
+		this.demoid = demoid;
 	}
 
 	public String getName() {

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
-import com.mongodb.model.Beer;
+import com.mongodb.model.Demo;
 import com.mongodb.service.BaseService;
 
 @Controller
@@ -21,19 +21,19 @@ public class AppController {
 
 	@RequestMapping("addItem")
 	public @ResponseBody
-	String addItem(@RequestParam String id, @RequestParam String name, @RequestParam String description) {
-		Beer beer = new Beer();
-		beer.setId(id);
-		beer.setName(name);
-		beer.setDescription(description);
-		baseService.save(beer, "beer");
+	String addItem(@RequestParam String demoid, @RequestParam String name, @RequestParam String description) {
+		Demo demo = new Demo();
+		demo.setDemoid(demoid);
+		demo.setName(name);
+		demo.setDescription(description);
+		baseService.save(demo, "Demo");
 		return "success";
 	}
 
 	@RequestMapping("search")
 	public @ResponseBody
 	String searchUser() {
-		List<Beer> list = baseService.find(null, Beer.class, "beer");
+		List<Demo> list = baseService.find(null, Demo.class, "Demo");
 		return JSON.toJSONString(list);
 	}
 }
