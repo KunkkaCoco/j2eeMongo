@@ -21,14 +21,13 @@ public class AppController {
 	private BaseService baseService;
 
 	@RequestMapping("addItem")
-	public @ResponseBody String addItem(@RequestParam String demoid, @RequestParam String name,
-			@RequestParam String description) {
+	public String addItem(@RequestParam String demoid, @RequestParam String name, @RequestParam String description) {
 		Demo demo = new Demo();
 		demo.setDemoid(demoid);
 		demo.setName(name);
 		demo.setDescription(description);
 		baseService.save(demo, "Demo");
-		return "success";
+		return "hello";
 	}
 
 	@RequestMapping("search")
