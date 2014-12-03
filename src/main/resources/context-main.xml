@@ -9,7 +9,10 @@
 		<property name="locations" value="classpath:config.properties" />
 		<property name="ignoreUnresolvablePlaceholders" value="true" />
 	</bean>
-	
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations" value="classpath:httl.properties" />
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+	</bean>
 	<context:component-scan base-package="com.mongodb" />
 	<import resource="context-mongodb.xml" />
 

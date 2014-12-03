@@ -1,14 +1,17 @@
 package com.mongodb.controller;
 
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.alibaba.fastjson.JSON;
 import com.mongodb.model.Message;
 import com.mongodb.service.BaseService;
 
@@ -27,13 +30,20 @@ public class MessageController {
 		msg.setContent(content);
 		msg.setTime(System.currentTimeMillis());
 		baseService.save(msg, "msg");
-		return "msg";
+		return "success";
 	}
 
 	@RequestMapping("queryMsg")
-	public @ResponseBody String searchUser() {
+	public String searchUser(HttpServletResponse response, Map<String, Object> context) throws IOException,
+			ParseException {
 		List<Message> list = baseService.find(null, Message.class, "msg");
-		return JSON.toJSONString(list);
-	}
 
+		context.put("list", list);
+		//
+		// Engine engine = Engine.getEngine();
+		// Template template = engine.getTemplate("/message.httl");
+		// template.render(parameters, response.getOutputStream());
+
+		return "message";
+	}
 }

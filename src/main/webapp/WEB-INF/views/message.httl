@@ -1,0 +1,28 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+    <body>
+         <table>
+           
+             <tr>
+                 <td>姓名</td>
+                 <td>消息</td>
+            </tr>
+            <!--#for(Message msg : list)-->
+            <tr>
+                <td>${msg.name}</td>
+                <td>$!{msg.content}</td>
+            </tr>
+            <!--#else-->
+                没有数据。
+            <!--#end-->
+             <tr>
+                <td>姓名</td>
+                 <td>消息</td>
+            </tr>
+        </table>
+    </body>
+</html>
+</html>
