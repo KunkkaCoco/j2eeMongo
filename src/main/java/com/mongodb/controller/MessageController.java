@@ -5,14 +5,11 @@ import java.text.ParseException;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import com.mongodb.model.Message;
+import com.mongodb.model.Msge;
 import com.mongodb.service.BaseService;
 
 @Controller
@@ -23,27 +20,26 @@ public class MessageController {
 	private BaseService baseService;
 
 	@RequestMapping("sendMsg")
-	public String addItem(@RequestParam String name, @RequestParam String content) {
+	public String addItem(String name, String content) {
 
-		Message msg = new Message();
+		Msge msg = new Msge();
 		msg.setName(name);
 		msg.setContent(content);
 		msg.setTime(System.currentTimeMillis());
 		baseService.save(msg, "msg");
-		return "success";
+		return "redirect:/msg/queryMsg.do?name=" + name;
 	}
 
 	@RequestMapping("queryMsg")
-	public String searchUser(HttpServletResponse response, Map<String, Object> context) throws IOException,
-			ParseException {
-		List<Message> list = baseService.find(null, Message.class, "msg");
+	public String searchUser(Map<String, Object> context, String name) throws IOException, ParseException {
+		List<Msge> list = baseService.find(null, Msge.class, "msg");
 
 		context.put("list", list);
 		//
 		// Engine engine = Engine.getEngine();
 		// Template template = engine.getTemplate("/message.httl");
 		// template.render(parameters, response.getOutputStream());
-
+		context.put("name", name);
 		return "message";
 	}
 }
