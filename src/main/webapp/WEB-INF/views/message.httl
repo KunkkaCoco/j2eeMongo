@@ -18,7 +18,7 @@
     <body>
 
          <h2 class="sub-header">Section title</h2>
-          <div class="table-responsive" div style="width:1366px;height:700px; overflow-y:scroll; border:1px solid;">
+          <div class="table-responsive" div style="width:1366px;height:600px; overflow-y:scroll; border:1px solid;">
             <table class="table table-striped">
               <thead>
                 <tr>
