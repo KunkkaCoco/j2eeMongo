@@ -18,13 +18,14 @@
     <body>
 
          <h2 class="sub-header">Section title</h2>
-          <div class="table-responsive" div style="width:13660px;height:900px; overflow-y:scroll; border:1px solid;">
+          <div class="table-responsive" div style="width:1366px;height:700px; overflow-y:scroll; border:1px solid;">
             <table class="table table-striped">
               <thead>
                 <tr>
                   <th width="300">昵称</th>
                   <th width="300">#</th>
                   <th>消息</th>
+                  <th width="150"><a href="removeall.do?collectionname=msg">删除全部</a></th>
                 </tr>
               </thead>
               <tbody>
@@ -33,6 +34,7 @@
 	                <td>${msg.name}</td>
 	                <td>${msg.time}</td>
 	                <td>$!{msg.content}</td>
+	                <td>删除</td>
 	            </tr>
 	            <!--#else-->
 	                没有数据。
