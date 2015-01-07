@@ -28,7 +28,7 @@ public class MessageController {
 		content = content == null ? "" : new String(content.getBytes("iso-8859-1"), "utf-8");
 		Msge msg = new Msge();
 		msg.setName(name);
-		msg.setContent(content);
+		msg.setContent(content.replace("<", "&lt;").replace(">", "&gt;"));
 		msg.setTime(System.currentTimeMillis());
 		baseService.save(msg, "msg");
 		return "redirect:/msg/queryMsg.do?name=" + name;
