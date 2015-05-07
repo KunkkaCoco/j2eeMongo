@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        ">
+ 
+    <dubbo:application name="xh-msg-center"  />
+ 
+ 	<!-- 使用zookeeper广播注册中心暴露发现服务地址 -->
+	<dubbo:registry id="prd" protocol="zookeeper"
+		address="192.168.75.138:2181,192.168.75.139:2181,192.168.75.140:2181,192.168.75.141:2181,192.168.75.142:2181" />
+	<dubbo:registry id="test" protocol="zookeeper"
+		address="192.168.83.251:2181,192.168.83.252:2181,192.168.83.253:2181,192.168.83.254:2181" />
+		
+ 
+    <dubbo:protocol name="dubbo" port="50083" />
+ 
+    <dubbo:service interface="com.mongodb.service.BookService" ref="msgService" group="linux" timeout="10000"  registry="prd"/>
+    <bean id="bookService" class="com.mongodb.service.impl.BookServiceImpl" /> 
+</beans>

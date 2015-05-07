@@ -8,4 +8,6 @@ public interface BookService {
 
 	List<Book> findBooks() throws Exception;
 
+	String testGroupService() throws Exception;
+
 }

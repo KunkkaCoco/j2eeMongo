@@ -37,4 +37,10 @@ public class BookServiceImpl implements BookService {
 		return books;
 	}
 
+	@Override
+	public String testGroupService() throws Exception {
+
+		return "book service";
+	}
+
 }
