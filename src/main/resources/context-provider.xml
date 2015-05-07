@@ -8,7 +8,7 @@
         http://code.alibabatech.com/schema/dubbo/dubbo.xsd
         ">
  
-    <dubbo:application name="xh-msg-center"  />
+    <dubbo:application name="xh-testgroup"/>
  
  	<!-- 使用zookeeper广播注册中心暴露发现服务地址 -->
 	<dubbo:registry id="prd" protocol="zookeeper"
@@ -19,6 +19,6 @@
  
     <dubbo:protocol name="dubbo" port="50083" />
  
-    <dubbo:service interface="com.mongodb.service.BookService" ref="msgService" group="linux" timeout="10000"  registry="prd"/>
+    <dubbo:service interface="com.mongodb.service.BookService" ref="bookService" group="linux" timeout="10000"  registry="prd"/>
     <bean id="bookService" class="com.mongodb.service.impl.BookServiceImpl" /> 
 </beans>
