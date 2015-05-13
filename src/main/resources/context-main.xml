@@ -15,5 +15,5 @@
 	</bean>
 	<context:component-scan base-package="com.mongodb" />
 	<import resource="context-mongodb.xml" />
-   <import resource="context-provider.xml" />
+   <!--<import resource="context-provider.xml" />-->
 </beans>
